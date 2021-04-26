@@ -1,0 +1,271 @@
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    <title>Ветеринар Мариуполь - &#x427;&#x430;&#x441;&#x442;&#x43E; &#x437;&#x430;&#x434;&#x430;&#x432;&#x430;&#x435;&#x43C;&#x44B;&#x435; &#x432;&#x43E;&#x43F;&#x440;&#x43E;&#x441;&#x44B;</title>
+    <link href="libs/slick/slick.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+<body class="hidden">
+    <div id="main-block">
+        <header class="header">
+            
+<div class="header__infoBlock">
+    <div class="header__wrapper">
+        <div class="header__infoHomeBlock">
+            <img src="img/icons/home.svg" alt="home" class="header__infoIcon header__infoIcon-home" />
+            <p class="header__infoText">г. Мариуполь, проспект Победы, 48а</p>
+        </div>
+        <div class="header__infoPhoneBlock">
+            <img src="img/icons/phone.svg" alt="phone" class="header__infoIcon header__infoIcon-phone" />
+            <a href="tel:0676347574" class="header__infoText">(067) 634 -75 - 74</a>
+            <a href="tel:0637570131" class="header__infoText header__infoText-phone">(063) 757 - 01 - 31</a>
+            <a href="tel:0982664389" class="header__infoText header__infoText-phone">(098) 266 - 43 - 89</a>
+        </div>
+        <div class="header__infoCalendarBlock">
+            <img src="img/icons/calendar.svg" alt="calendar" class="header__infoIcon header__infoIcon-calendar" />
+            <p class="header__infoText"><span>Пн - Пт</span> 8:00 - 18:00</p>
+            <p class="header__infoText header__infoText-calendar"><span>Сб - Вс</span> 8:00 - 14:00 </p>
+        </div>
+    </div>
+</div>
+<div class="header__navBlock">
+    <div class="header__wrapper">
+        <a href="Faq.html#" class="header__logo">
+            <img src="img/logo.svg" alt="logo" />
+        </a>
+        <nav class="header__nav">
+            <a class="header__navLink header__navLink-active" href="index.html">Главная</a>
+            <a class="header__navLink " href="Home/AboutUs.html">О Клинике</a>
+            <a class="header__navLink " href="./service.html">Наши Услуги</a>
+            <a class="header__navLink " href="articles.html">Полезные Статьи</a>
+            <a class="header__navLink " href="Faq.html">FAQ</a>
+            <a class="header__navLink " href="../vethelp.in.ua/contact.html">Контакты</a>
+        </nav>
+        <div class="header__questionBlock">
+            <img src="img/icons/pet.svg" alt="pet" class="header__questionIcon" />
+            <a href="Faq.html#!" class="header__questionText">Задать вопрос</a>
+        </div>
+    </div>
+</div>
+        </header>
+        <main class="main">
+            
+
+
+<link href="css/dist/stylesh1.css" rel="stylesheet" />
+<div class="main__headlineBlock">
+    <div class="wrapper">
+        <div class="main__headlineContentBlock">
+            <h1 class="main__headlineContentTitle">FAQ</h1>
+            <p class="main__headlineContentText">
+                Узнать информацию о наших услугах, записаться на прием к врачу или проконсультироваться вы можете по телефону, в
+                любое удобное для вас время.
+            </p>
+            <a class="main__headlineContentButton" @click.stop="modals.authRequiredDisplayed = !modals.authRequiredDisplayed">
+                <img src="img/icons/doc.svg" alt="doc" class="main__headlineContentButtonIcon" />
+                Задать вопрос
+            </a>
+        </div>
+        <img src="img/faq/cat.png" alt="bird" class="main__headlineBlockImg main__headlineBlockImg-faq" />
+    </div>
+</div>
+        </div>
+        <img src="img/faq/bird.png" alt="bird" class="main__faqContentBird" />
+    </div>
+</div> -->
+
+
+<div class="modal modalFaq" onclick="void(0)">
+    <div class="modal__content">
+        <img src="img/popup/close.svg" alt="close" class="modal__closeBtn modal__closeBtn-faq" />
+        <div class="modal__contentAuthBlock">
+            <p class="modal__contentAuthBlockText">Авторизация:</p>
+            <a href="Faq.html#!" class="modal__contentAuthBlockItem">
+                <img src="img/popup/google.svg" alt="icon" class="modal__contentAuthBlockItemIcon" />
+                Войти через Google
+            </a>
+            <button href="#!" class="modal__contentAuthBlockItem">
+                <img src="img/popup/facebook.svg" alt="icon" class="modal__contentAuthBlockItemIcon" />
+                Войти через Facebook
+            </button>
+        </div>
+        <div class="modal__contentFormBlock">
+            <h2 class="modal__contentFormBlockTitle">Задать вопрос</h2>
+            <form action="Faq.html#!" class="main__articleAskForm">
+                <input type="text" class="main__articleAskFormInput" placeholder="Ваше имя" />
+                <textarea class="main__articleAskFormTextarea" placeholder="Опишите Ваш вопрос."></textarea>
+                <button class="main__articleAskFormButton">Отправить</button>
+            </form>
+        </div>
+        <img src="img/popup/dog2.png" alt="dog" class="modal__contentImg" />
+    </div>
+</div>
+
+<popup :displayed="modals.authRequiredDisplayed">
+    <div class="modal__contentAuthBlock">
+        <div v-if="!authorized" class="not-authorized">
+            <p class="modal__contentAuthBlockText">Войдите, чтобы продолжить:</p>
+            <a class="modal__contentAuthBlockItem" v-on:click="signInGoogle($event)">
+                <img src="img/popup/google.svg" alt="icon" class="modal__contentAuthBlockItemIcon" />
+                Войти через Google
+            </a>
+            <a class="modal__contentAuthBlockItem" v-on:click="signInFacebook($event)">
+                <img src="img/popup/facebook.svg" alt="icon" class="modal__contentAuthBlockItemIcon" />
+                Войти через Facebook
+            </a>
+        </div>
+        <div v-if="authorized" class="authorized">
+            
+<form ref="faqForm">
+    <p><i>{{user.fullName}}</i>, после задания вопроса, вы будете уведомлены о результатах на <i>{{user.email}}</i>.</p>
+    <br />
+    <input type="text" :disabled="faqQuestion.isAnonymous" :class="{'main__articleAskFormInput' : true, 'disabled-input': faqQuestion.isAnonymous}" placeholder="Ваше имя" :value="user.fullName">
+    <input class="styled-checkbox" id="styled-checkbox-1" type="checkbox" v-model="faqQuestion.isAnonymous">
+    <label for="styled-checkbox-1">Задать анонимно</label>
+    <br />
+    <br />
+    <textarea class="main__articleAskFormTextarea" placeholder="Опишите Ваш вопрос." v-model="faqQuestion.question" data-val="true" data-val-required="&#x41F;&#x43E;&#x43B;&#x435; &#x43E;&#x431;&#x44F;&#x437;&#x430;&#x442;&#x435;&#x43B;&#x44C;&#x43D;&#x43E; &#x434;&#x43B;&#x44F; &#x437;&#x430;&#x43F;&#x43E;&#x43B;&#x43D;&#x435;&#x43D;&#x438;&#x44F;" id="Question" name="Question">
+</textarea>
+    <button @click="submit($event)" class="main__articleAskFormButton">Задать вопрос</button>
+</form>
+        </div>
+    </div>
+</popup>
+
+<notifications group="foo" position="bottom right" style="width:auto;">
+    <template slot="body" slot-scope="props">
+        <div class="foo">
+            <div class="notification__subscribe notification__subscribe-active">
+                <div class="notification__subscribeContent">
+                    <span class="notification__subscribeContentLine"></span>
+                    <div class="notification__subscribeTextBlock">
+                        <img src="img/about/msgDog.svg" alt="dog" class="notification__subscribeTextBlockImg" />
+                        <p class="notification__subscribeText">{{ props.item.text }}</p>
+                    </div>
+                    <img src="img/about/close.svg" alt="close" @click="props.close" class="notification__subscribeCloseImg" />
+                </div>
+            </div>
+        </div>
+    </template>
+</notifications>
+
+
+        </main>
+        <footer class="footer">
+            <div class="footer__wrapper">
+    <div class="footer__contentBlock">
+        <a href="Faq.html#" class="footer__logo">
+            <img src="img/logo-footer.svg" alt="logo-footer" />
+        </a>
+        <div class="footer__navBlock">
+            <div class="footer__navColumn">
+                <a class="footer__navLink" href="index.html">Главная</a>
+                <a href="Faq.html#" class="footer__navLink">О Клинике</a>
+                <a class="footer__navLink" href="Services.html">Наши Услуги</a>
+            </div>
+            <div class="footer__navColumn">
+                <a href="Faq.html#" class="footer__navLink">Полезные Статьи</a>
+                <a href="Faq.html#" class="footer__navLink">FAQ</a>
+                <a class="footer__navLink" href="Home/Contacts.html">Контакты</a>
+            </div>
+        </div>
+        <div class="footer__infoBlock">
+            <div class="footer__infoColumn">
+                <img src="img/icons/calendar.svg" alt="calendar-footer" class="footer__infoIcon" />
+                <div class="footer__infoTextBlock">
+                    <p class="footer__infoText"><span>Пн - Пт</span> 8:00 - 18:00</p>
+                    <p class="footer__infoText"><span>Сб - Вс</span> 8:00 - 14:00</p>
+                </div>
+            </div>
+            <div class="footer__infoColumn footer__infoColumn-home">
+                <img src="img/icons/home.svg" alt="home-footer" class="footer__infoIcon" />
+                <div class="footer__infoTextBlock">
+                    <p class="footer__infoText">г. Мариуполь,</p>
+                    <p class="footer__infoText">проспект Победы, 48а</p>
+                </div>
+            </div>
+            <div class="footer__infoColumn footer__infoColumn-home">
+                <img src="img/icons/phone.svg" alt="phone-footer" class="footer__infoIcon" />
+                <div class="footer__infoTextBlock">
+                    <a href="tel:0676347574" class="footer__infoText">(067) 634 -75 - 74</a>
+                    <a href="tel:0637570131" class="footer__infoText">(063) 757 - 01 - 31</a>
+                    <a href="tel:0982664389" class="footer__infoText">(098) 266 - 43 - 89</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p class="footer__copyright">© 2020 example. All Rights Reserved.</p>
+</div>
+        </footer>
+        
+<div class="modal modalQuestions" onclick="void(0)">
+    <div class="modal__content">
+        <img src="img/popup/close.svg" alt="close" class="modal__closeBtn modal__closeBtn-questions" />
+        <div class="modal__contentFormBlock">
+            <h2 class="modal__contentFormBlockTitle">Остались вопросы?</h2>
+            <form class="main__articleAskForm" method="post" data-askQuestion action="https://vethelp.in.ua/Question/Ask">
+                <input class="main__articleAskFormInput" placeholder="Ваше имя" type="text" data-val="true" data-val-required="&#x41F;&#x43E;&#x43B;&#x435; Name &#x43E;&#x431;&#x44F;&#x437;&#x430;&#x442;&#x435;&#x43B;&#x44C;&#x43D;&#x43E;&#x435;." id="Name" name="Name" value="" />
+                <span class="popup-error field-validation-valid" data-valmsg-for="Name" data-valmsg-replace="true"></span>
+
+                <input class="main__articleAskFormInput" placeholder="Email для обратной связи" type="email" data-val="true" data-val-email="Email &#x43D;&#x435; &#x43A;&#x43E;&#x440;&#x440;&#x435;&#x43A;&#x442;&#x43D;&#x44B;&#x439;. &#x41F;&#x43E;&#x43F;&#x440;&#x43E;&#x431;&#x443;&#x439;&#x442;&#x435; &#x435;&#x449;&#x435; &#x440;&#x430;&#x437;." data-val-required="&#x41F;&#x43E;&#x43B;&#x435; Email &#x43E;&#x431;&#x44F;&#x437;&#x430;&#x442;&#x435;&#x43B;&#x44C;&#x43D;&#x43E;&#x435;." id="Email" name="Email" value="" />
+                <span class="popup-error field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+
+                <textarea class="main__articleAskFormTextarea" placeholder="Опишите Ваш вопрос." data-val="true" data-val-required="&#x41F;&#x43E;&#x43B;&#x435; Question &#x43E;&#x431;&#x44F;&#x437;&#x430;&#x442;&#x435;&#x43B;&#x44C;&#x43D;&#x43E;&#x435;." id="Question" name="Question">
+</textarea>
+                <span class="popup-error field-validation-valid" data-valmsg-for="Question" data-valmsg-replace="true"></span>
+                <br />
+                <button class="main__articleAskFormButton">Задать вопрос</button>
+            <input name="__RequestVerificationToken" type="hidden" value="CfDJ8DWvHdRtXyRDinjanOVW-yldoG3nT_NSzN-YLHle1DmIvNhfTloxbnUo55Uv2cc2G9mPNkessLAjtMnSOdlfa0BfWO3frwTH0e7Y3SQjvrgSztnylGngCbdVE3Sw3rYusTJQXz7-LAgsqd2TFNyU_k8" /></form>
+        </div>
+        <img src="img/popup/dog.png" alt="dog" class="modal__contentImg" />
+    </div>
+</div>
+    </div>
+
+    <script>
+        const BASE_DOMAIN = 'https://vethelp.in.ua'
+    </script>
+    <script src="js/jquery-3.1.0.min.js"></script>
+    <script src="lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="libs/slick/slick.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <div id="fb-root"></div>
+    <script>
+        window.params = {
+            clientId: '430411725203-2nf3u63mt46h2n3gmpapermu9cb6p1h4.apps.googleusercontent.com',
+            authorized: 'False'.toLowerCase() == 'true',
+            user: null
+        };
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '270605367288186',
+                cookie: true,                     // Enable cookies to allow the server to access the session.
+                xfbml: true,                     // Parse social plugins on this webpage.
+                version: 'v6.0'           // Use this Graph API version for this call.
+            });
+        }
+
+        function renderButton() {
+            gapi.signin2.render('signInGoogle', {
+                'scope': 'profile email',
+                'width': 240,
+                'height': 50,
+                'longtitle': true,
+                'theme': 'light'
+            });
+        }
+    </script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="js/dist/pages/faq.bundle.js"></script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v6.0&appId=270605367288186&autoLogAppEvents=1"></script>
+
+</body>
+</html>
